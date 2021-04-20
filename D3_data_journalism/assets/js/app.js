@@ -79,8 +79,8 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.healthcare))
     .attr("r", "15")
-    .attr("fill", "blue")
-    .attr("opacity", ".75");
+    .attr("fill", "lightblue")
+    .attr("opacity", ".5");
     
     chartGroup.select("g")
     .selectAll("circle")
@@ -91,8 +91,9 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     .attr("x", d => xLinearScale(d.poverty))
     .attr("y", d => yLinearScale(d.healthcare))
     .attr("dy",-515)
-    .attr("text-anchor", "middle")
     .attr("font-size", "12px")
+    .attr("text-anchor", "middle")
+    .attr("stroke", "black")
     .attr("fill", "black");
 
     // insert text 
