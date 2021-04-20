@@ -28,6 +28,22 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     censusData.forEach(function(data) {
         data.id = +data.id;
         data.state = +data.state;
+        data.abbr = +data.abbr;
+        data.poverty = +data.poverty;
+        data.povertyMoe = +data.povertyMoe;
+        data.age = +data.age;
+        data.ageMoe = +data.ageMoe;
+        data.income = +data.income;
+        data.incomeMoe = +data.incomeMoe; 
+        data.healthcare = +data.healthcare;
+        data.healthcareLow = +data.healthcareLow;
+        data.healthcareHigh = +data.healthcareHigh;
+        data.obesity = +data.obesity;
+        data.obesityLow = +data.obesityLow;
+        data.obesityHigh = +data.obesityHigh;
+        data.smokes = +data.smokes;
+        data,smokesLow = +data.smokesLow;
+        data.smokesHigh = +data.smokesHigh;
     });
 
     // Step 2: Create scale functions
