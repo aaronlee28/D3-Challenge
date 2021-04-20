@@ -27,8 +27,8 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     // ==============================
     censusData.forEach(function(data) {
         data.id = +data.id;
-        data.state = +data.state;
-        data.abbr = +data.abbr;
+        data.state = data.state;
+        data.abbr = data.abbr;
         data.poverty = +data.poverty;
         data.povertyMoe = +data.povertyMoe;
         data.age = +data.age;
@@ -45,7 +45,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
         data,smokesLow = +data.smokesLow;
         data.smokesHigh = +data.smokesHigh;
     });
-
+    
     // Step 2: Create scale functions
     // ==============================
     var xLinearScale = d3.scaleLinear()
@@ -82,6 +82,18 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     .attr("fill", "blue")
     .attr("opacity", ".75");
     
+    chartGroup.select("g")
+    .selectAll("circle")
+    .data(censusData)
+    .enter()
+    .append("text")
+    .text(d => d.abbr)
+    .attr("x", d => xLinearScale(d.poverty))
+    .attr("y", d => yLinearScale(d.healthcare))
+    .attr("dy",-515)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "12px")
+    .attr("fill", "black");
 
     // insert text 
     
